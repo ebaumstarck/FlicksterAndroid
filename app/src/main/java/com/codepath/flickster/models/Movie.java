@@ -58,6 +58,16 @@ public class Movie {
         this.id = jsonObject.getInt("id");
     }
 
+    public Movie(int id, String posterPath, String backdropPath, String originalTitle, String overview, String releaseDate, double rating) {
+        this.id = id;
+        this.posterPath = posterPath;
+        this.backdropPath = backdropPath;
+        this.originalTitle = originalTitle;
+        this.overview = overview;
+        this.releaseDate = releaseDate;
+        this.rating = rating;
+    }
+
     public static ArrayList<Movie> fromJSONArray(JSONArray array ){
         ArrayList<Movie> results = new ArrayList<>();
         for (int i = 0; i <array.length(); i++ ){

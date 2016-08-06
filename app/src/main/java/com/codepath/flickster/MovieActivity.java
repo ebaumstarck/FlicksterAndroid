@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -26,8 +25,7 @@ import java.util.ArrayList;
 import adapters.MovieArrayAdapter;
 import cz.msebera.android.httpclient.Header;
 
-public class MovieActivity extends YouTubeBaseActivity implements AdapterView.OnItemClickListener { // AppCompatActivity {
-
+public class MovieActivity extends YouTubeBaseActivity implements AdapterView.OnItemClickListener {
     ArrayList<Movie> movies;
     MovieArrayAdapter movieAdapter;
     ListView lvItems;
@@ -77,7 +75,6 @@ public class MovieActivity extends YouTubeBaseActivity implements AdapterView.On
                     movies.addAll(Movie.fromJSONArray(movieJsonResults));
                     movieAdapter.notifyDataSetChanged();
                     swipeContainer.setRefreshing(false);
-                    Log.d("Debug", movieJsonResults.toString());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

@@ -2,7 +2,6 @@ package adapters;
 
 import android.content.Context;
 import android.content.res.Configuration;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -129,7 +128,6 @@ public class MovieArrayAdapter extends ArrayAdapter<Movie> {
             overlayTopMargin = (int)((height - overlaySize) * 0.12);
         }
 
-        Log.d("adapter", String.format("w,h: %d %d", width, height));
         Picasso.with(getContext()).load(movie.getBackdropPath())
                 .resize(width, height)
                 .centerInside()

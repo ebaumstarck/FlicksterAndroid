@@ -1,7 +1,5 @@
 package com.codepath.flickster;
 
-import android.util.Log;
-
 import com.google.android.youtube.player.YouTubePlayer;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -25,12 +23,10 @@ public class TrailerPlayer {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 // find the first YouTube trailer
-                Log.i("Searched for ID:", String.format("%d", movieId));
                 try {
                     JSONArray youtubeVideos = response.getJSONArray("youtube");
                     for (int i = 0; i < youtubeVideos.length(); i++) {
                         JSONObject video = youtubeVideos.getJSONObject(i);
-                        Log.d("trailers", video.toString());
                         if (video.getString("type").equals("Trailer")) {
                             youTubePlayer.cueVideo(video.getString("source"));
                             break;
